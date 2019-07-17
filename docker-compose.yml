@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+
+  tmc-refund.local:
+    build: ./kickoff-total.js
+    image: kickoff-total.js:latest
+    container_name: kickoff-total.local
+    volumes:
+     - ./share/logs:/app/logs
+    env_file:
+     - ./config.env
+    networks:
+     - vlan
+    restart: always
+    ports:
+     - "8000:8000"
+
+networks:
+  vlan:
